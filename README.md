@@ -1,7 +1,7 @@
 # browser-signature
 `browser-signature` is a client-side library that generates custom browser signature, relying on the browser's navigator, window, and screen.
 
-Browser signatures are used to identify devices, even with different user-agents or IP origins. <sup><a href="">[1]</a></sup>
+Browser signatures are used to identify devices, even with different user-agents or IP origins. <sup><a href="https://github.com/creuserr/browser-signature?tab=readme-ov-file#footnote">[1]</a></sup>
 
 <p align="center"><a href="https://crebin.vercel.app/demo/signature.html"><kbd>Try it online :green_circle:</kbd></a></p>
 
@@ -68,3 +68,4 @@ Generated signatures are hexadecimal Jenkins hashes.
 
 If so, please report an issue regarding it. Thank you!
 
+<p align="center"><a href="https://github.com/creuserr/browser-signature/issues/new?assignees=&labels=&projects=&template=report---signature-inaccuracy.md&title=Report+~+Signature+inaccuracy"><kbd>Submit a report :red_circle:</kbd></a></p>
