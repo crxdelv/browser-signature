@@ -1,4 +1,5 @@
 function getBrowserSignature() {
+  if(this.window == undefined) throw Error("Cannot obtain the browser signature in a non-client-sided program")
   var n = window.navigator
   var s = window.screen
   var sw = [n.appName, n.appCodeName, n.product, n.productSub, n.vendor]
