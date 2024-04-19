@@ -1,7 +1,7 @@
 # browser-signature
 `browser-signature` is a client-side library that generates custom browser signature, relying on the browser's navigator, window, and screen.
 
-Browser signatures are used to identify devices, even with different user-agents or IP origins.<a href="">&ast;</a>
+Browser signatures are used to identify devices, even with different user-agents or IP origins. <sup><a href="">[1]</a></sup>
 
 <p align="center"><a href="https://crebin.vercel.app/demo/signature.html"><kbd>Try it online :green_circle:</kbd></a></p>
 
