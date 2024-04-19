@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Device Information
+## :beginner: Device Information
 
 **Browser** <br>
 *(.e.g Chrome, Firefox)*
@@ -18,7 +18,7 @@ assignees: ''
 **User agent** <br>
 *(e.g. Mozilla 4.0 (Linux; Android 12 COZ407 Build/PX23906.63029.41309) AppleWebKit/534 (KHTML, like Gecko) Version/5 Chrome/YP92939.54507.11270 Mobile Safari/550)*
 
-## Client Information of *browser A*
+## :beginner: Client Information of *browser A*
 
 **Software**
 - `App name` &mdash; ...
@@ -44,7 +44,7 @@ assignees: ''
 - `RTCCertificate` &mdash; y/n
 - `IDBDatabase` &mdash; y/n
 
-### Client Information of *browser B*
+### :beginner: Client Information of *browser B*
 
 **Software**
 - `App name` &mdash; ...
@@ -70,7 +70,7 @@ assignees: ''
 - `RTCCertificate` &mdash; y/n
 - `IDBDatabase` &mdash; y/n
 
-### Signatures
+### :beginner: Signatures
 
 **Browser A**
 
