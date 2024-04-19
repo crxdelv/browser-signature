@@ -64,7 +64,7 @@ It is made up of:
 Generated signatures are hexadecimal Jenkins hashes.
 
 # Footnote
-&ast; &mdash; Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature.
+<sub>[1]</sub> Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature.
 
 If so, please report an issue regarding it. Thank you!
 
