@@ -81,12 +81,14 @@ It is made up of:
 - `IDBDatabase`
 
 ## Signatures
-`signatures` is a compilation of overall signatures. It consists of three signatures:
+`signatures` is a compilation of overall signatures. It consists of four signatures:
 
 `softcomp` refers to the overall signature of software and compatibility.
 
 `hardcomp` refers to the overall signature of hardware and compatibility.
 
 `softhard` refers to the overall signature of software and hardware.
+
+`all` refers to the overall signature of software, hardware, and compatibility.
 
 [^1]: Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature. <p>If so, please report an issue regarding it. Thank you!</p> <p align="center"><a href="https://github.com/creuserr/browser-signature/issues/new?assignees=&labels=&projects=&template=report---signature-inaccuracy.md&title=Report+~+Signature+inaccuracy"><kbd>Submit a report :red_circle:</kbd></a></p>
