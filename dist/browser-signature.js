@@ -32,6 +32,11 @@ function getBrowserSignature() {
     hardware: enc(hw.join("")),
     compatibility: enc(sp.map(i => i in window ? 1 : 0).join(""))
   }
-  sign.signature = enc(sign.software + sign.hardware + sign.compatibility)
+  sign.signature = {
+    all: enc(sign.software + sign.hardware + sign.compatibility),
+    softhard: enc(sign.software + sign.hardware),
+    hardcomp: enc(sign.hardware + sign.compatibility),
+    softcomp: enc(sign.software +c sign.compatibility)
+  }
   return sign
 }
