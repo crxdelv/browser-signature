@@ -44,6 +44,9 @@ getBrowserSignature()
 
 `Similarity conflicts` refers to values that are too weak and can cause similarity conflicts with other devices.
 
+> [!TIP]
+> Based on the comparison, `hardcomp` is the best case to use.
+
 # Under the hood
 ## Software
 `software` is a signature derived from the navigator's client information.
