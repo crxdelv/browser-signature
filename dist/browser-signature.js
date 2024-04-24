@@ -3,7 +3,7 @@ function getBrowserSignature() {
   var n = window.navigator
   var s = window.screen
   var sw = [n.appName, n.appCodeName, n.product, n.productSub, n.vendor]
-  var hw = [s.availHeight, s.availWidth, s.pixelDepth, s.colorDepth, n.hardwareConcurrency, n.maxTouchPoints, n.devicePixelRatio]
+  var hw = [s.availHeight, s.availWidth, s.pixelDepth, s.colorDepth, n.hardwareConcurrency, n.maxTouchPoints, window.devicePixelRatio]
   var sp = ["WebGL2RenderingContext", "Worker", "WebSocket", "WebAssembly", "RTCCertificate", "IDBDatabase"]
   function enc(raw) {
     return hash(new Array(Math.ceil(raw.length / 2)).fill(0).map((_, i) => {
