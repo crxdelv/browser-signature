@@ -61,6 +61,4 @@ It is made up of:
 ## Signature
 `signature` is the overall signature of those three components.
 
-Generated signatures are hexadecimal Jenkins hashes.
-
 [^1]: Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature. <p>If so, please report an issue regarding it. Thank you!</p> <p align="center"><a href="https://github.com/creuserr/browser-signature/issues/new?assignees=&labels=&projects=&template=report---signature-inaccuracy.md&title=Report+~+Signature+inaccuracy"><kbd>Submit a report :red_circle:</kbd></a></p>
