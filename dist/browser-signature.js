@@ -36,7 +36,7 @@ function getBrowserSignature() {
     all: enc(sign.software + sign.hardware + sign.compatibility),
     softhard: enc(sign.software + sign.hardware),
     hardcomp: enc(sign.hardware + sign.compatibility),
-    softcomp: enc(sign.software +c sign.compatibility)
+    softcomp: enc(sign.software + sign.compatibility)
   }
   return sign
 }
