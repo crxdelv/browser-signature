@@ -21,9 +21,28 @@ getBrowserSignature()
   software: String,
   hardware: String,
   compatibility: String,
-  signature: String
+  signature: {
+    all: String,
+    softcomp: String,
+    hardcomp: String,
+    softhard: String
+  }
 }
 ```
+
+## Comparison
+
+| Negative Feature | Hardware | Software | Compatibility |
+|:--------|:--------:|:--------:|:-------------:|
+| Modifiable | No | Yes | No |
+| Dependability by browser | No | Yes | Yes |
+| Similarity conflicts | Yes | No | Yes |
+
+`Modifiable` refers to values that can be modified by the client-side or server-side.
+
+`Dependability by browser` refers to values that depend on whether they are supported by the browser.
+
+`Similarity conflicts` refers to values that are too weak and can cause similarity conflicts with other devices.
 
 # Under the hood
 ## Software
@@ -58,7 +77,13 @@ It is made up of:
 - `RTCCertificate`
 - `IDBDatabase`
 
-## Signature
-`signature` is the overall signature of those three components.
+## Signatures
+`signatures` is a compilation of overall signatures. It consists of three signatures:
+
+`softcomp` refers to the overall signature of software and compatibility.
+
+`hardcomp` refers to the overall signature of hardware and compatibility.
+
+`softhard` refers to the overall signature of software and hardware.
 
 [^1]: Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature. <p>If so, please report an issue regarding it. Thank you!</p> <p align="center"><a href="https://github.com/creuserr/browser-signature/issues/new?assignees=&labels=&projects=&template=report---signature-inaccuracy.md&title=Report+~+Signature+inaccuracy"><kbd>Submit a report :red_circle:</kbd></a></p>
