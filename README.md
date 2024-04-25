@@ -38,7 +38,7 @@ getBrowserSignature()
 | Dependability by browser | No | Yes | Yes |
 | Similarity conflicts | Yes | No | Yes |
 
-`Modifiable` refers to values that can be modified by the client-side or server-side.
+`Modifiable` refers to values that can be modified by the browser, server-side, or even the client-side.
 
 `Dependability by browser` refers to values that depend on whether they are supported by the browser.
 
