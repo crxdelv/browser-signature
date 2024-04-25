@@ -42,7 +42,7 @@ getBrowserSignature()
 
 `Dependability by browser` refers to values that depend on whether they are supported by the browser.
 
-`Similarity conflicts` refers to values that are too wrak and can cause similarity conflicts with other devices.
+`Similarity conflicts` refers to values that are too weak and can cause similarity conflicts with other devices.
 
 > [!TIP]
 > Based on the comparison, `hardcomp` is the best signature to use. The vulnerability can somehow be replenished by combining the two constant components.
