@@ -34,7 +34,7 @@ function getBrowserSignature(conf) {
   const sign = {
     software: hash(sw.join("")),
     hardware: hash(hw.join("")),
-    compatibility: hash(comp.map(i => i in kit.global ? 1 : 0).join(""))
+    compatibility: hash(comp.map(i => i in kit ? 1 : 0).join(""))
   }
   sign.signature = {
     all: hash(sign.software + sign.hardware + sign.compatibility),
