@@ -6,7 +6,7 @@ function getBrowserSignature(conf) {
     global: globalThis.window,
     hash: getBrowserSignature.hash
   }
-  if(kit == null) throw new Error("No provided kit")
+  if(typeof kit.global != "object" || typeof kit.hash != "function") throw new Error("Invalid or no provided kit")
   const n = kit.global.navigator
   const s = kit.global.screen
   let sw = [n.appName, n.appCodeName, n.product, n.productSub, n.vendor]
@@ -73,5 +73,3 @@ getBrowserSignature.hash = (raw) => {
 if("module" in $) $.module.exports = getBrowserSignature;
 else $.getBrowserSignature = getBrowserSignature
 })(globalThis)
-
-console.log(getBrowserSignature());
