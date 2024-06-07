@@ -112,6 +112,37 @@ It is made up of:
 
 `all` refers to the overall signature of software, hardware, and compatibility.
 
+## Hashing
+
+`browser-signature` uses this hashing method:
+
+```js
+getBrowserSignature.hash = (raw) => {
+  function hash(str) {
+    let h1 = 0xdeadbeef ^ 0
+    let h2 = 0x41c6ce57 ^ 0
+    for(let i = 0; i < str.length; i++) {
+    var ch = str.charCodeAt(i)
+    h1 = Math.imul(h1 ^ ch, 2654435761)
+    h2 = Math.imul(h2 ^ ch, 1597334677)
+    }
+    h1  = Math.imul(h1 ^ (h1 >>> 16), 2246822507)
+    h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909)
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507)
+    h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909)
+    return 4294967296 * (2097151 & h2) + (h1 >>> 0)
+  }
+  function pair(a, b) {
+    return 0.5 * (a + b) * (a + b + 1) + b
+  }
+  return hash(new Array(Math.ceil(raw.length / 2)).fill(0).map((_, i) => {
+    return pair(raw.charCodeAt(i * 2), raw.charCodeAt(i * 2 + 1) || 0)
+  }).join("")).toString(16)
+}
+```
+
+It merges two characters by using cantor-pairing method before hashing it.
+
 # Configuration
 
 ```js
