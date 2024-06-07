@@ -8,7 +8,7 @@ Browser signatures are used to identify devices, even with different user-agents
 # Installation
 
 ## Client-side
-Download [`browsee-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and embed it locally:
+Download [`browser-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and embed it locally:
 
 ```html
 <script src="browser-signature.js"></script>
@@ -21,7 +21,7 @@ Or use CDN instead:
 ```
 
 ## Server-side
-Download [`browsee-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and import it.
+Download [`browser-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and import it.
 
 ```js
 const getBrowserSignature = require("./browser-signature.js")
