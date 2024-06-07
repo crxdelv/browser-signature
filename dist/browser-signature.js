@@ -2,13 +2,10 @@
 
 function getBrowserSignature(conf) {
   const config = conf || {}
-  const kit = config.kit || {
-    global: globalThis.window,
-    hash: getBrowserSignature.hash
-  }
-  if(typeof kit.global != "object" || typeof kit.hash != "function") throw new Error("Invalid or no provided kit")
-  const n = kit.global.navigator
-  const s = kit.global.screen
+  const kit = config.kit || globalThis.window
+  if(typeof kit != "object" || typeof config.hash != "function") throw new Error("Invalid or no provided kit")
+  const n = kit.navigator
+  const s = kit.screen
   let sw = [n.appName, n.appCodeName, n.product, n.productSub, n.vendor]
   if(Array.isArray(config.software)) {
     if(config.override == true) {
@@ -34,15 +31,15 @@ function getBrowserSignature(conf) {
     }
   }
   const sign = {
-    software: kit.hash(sw.join("")),
-    hardware: kit.hash(hw.join("")),
-    compatibility: kit.hash(comp.map(i => i in kit.global ? 1 : 0).join(""))
+    software: config.hash(sw.join("")),
+    hardware: config.hash(hw.join("")),
+    compatibility: config.hash(comp.map(i => i in kit.global ? 1 : 0).join(""))
   }
   sign.signature = {
-    all: kit.hash(sign.software + sign.hardware + sign.compatibility),
-    softhard: kit.hash(sign.software + sign.hardware),
-    hardcomp: kit.hash(sign.hardware + sign.compatibility),
-    softcomp: kit.hash(sign.software + sign.compatibility)
+    all: config.hash(sign.software + sign.hardware + sign.compatibility),
+    softhard: config.hash(sign.software + sign.hardware),
+    hardcomp: config.hash(sign.hardware + sign.compatibility),
+    softcomp: config.hash(sign.software + sign.compatibility)
   }
   return sign
 }
