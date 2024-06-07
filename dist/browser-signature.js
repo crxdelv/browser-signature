@@ -70,6 +70,8 @@ getBrowserSignature.hash = (raw) => {
   }).join("")).toString(16)
 }
 
+getBrowserSignature.version = 2;
+
 if("module" in $) $.module.exports = getBrowserSignature;
 else $.getBrowserSignature = getBrowserSignature
 })(globalThis)
