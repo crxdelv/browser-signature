@@ -12,7 +12,7 @@ function getBrowserSignature(conf) {
     if(config.override == true) {
       sw = config.software
     } else {
-      sw = sw.concat(config.software)
+      sw = sw.concat(config.software.map(i => n[i]))
     }
   }
   let hw = [s.availHeight, s.availWidth, s.pixelDepth, s.colorDepth, n.hardwareConcurrency, n.maxTouchPoints, kit.devicePixelRatio]
@@ -20,7 +20,7 @@ function getBrowserSignature(conf) {
     if(config.override == true) {
       hw = config.hardware
     } else {
-      hw = hw.concat(config.hardware)
+      hw = hw.concat(config.hardware.map(i => s[i]))
     }
   }
   let comp = ["WebGL2RenderingContext", "Worker", "WebSocket", "WebAssembly", "RTCCertificate", "IDBDatabase"]
