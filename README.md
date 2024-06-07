@@ -6,13 +6,23 @@ Browser signatures are used to identify devices, even with different user-agents
 <p align="center"><a href="https://crebin.vercel.app/demo/signature.html"><kbd>Try it online :green_circle:</kbd></a></p>
 
 # Installation
+
+## Client-side
+Download [https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js](`browser-signature.js`) and embed it locally:
+
+```html
+<script src="browser-signature.js"></script>
+```
+
+Or use CDN instead:
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/creuserr/browser-signature/dist/browser-signature.js"></script>
 ```
 
 # Usage
 ```js
-getBrowserSignature()
+getBrowserSignature(Object: config)
 // Returns an object
 ```
 
@@ -90,5 +100,119 @@ It is made up of:
 `softhard` refers to the overall signature of software and hardware.
 
 `all` refers to the overall signature of software, hardware, and compatibility.
+
+# Configuration
+
+```js
+// getBrowserSignature(configuration)
+
+getBrowserSignature({
+  hash: Function, // REQUIRED
+  kit: Object, // REQUIRED
+  override: Boolean,
+  software: Array,
+  hardware: Array,
+  compatibility: Array
+})
+```
+
+## Creating a kit
+
+If you're using this library on a client-side application, you don't necessarily need to use kit.
+
+Kit is basically the global instance. Think of kit as the `window` instance. Since NodeJS is server-side, `window` is inaccessible.
+
+```js
+getBrowserSignature({
+  kit: {
+    // both navigator and screen
+    // must be objects
+    navigator: {
+      // ...
+    },
+    screen: {
+      // ...
+    },
+    // any value is accepted
+    // as long as it's defined
+    WebGL2RenderingContext: 1,
+    Worker: 1,
+    WebSocket: 1,
+    WebAssembly: 1
+    // ...
+  }
+})
+```
+
+| Component | Uses |
+|:---------:|:----:|
+| software | `kit.screen` |
+| hardware | `kit.navigator` and `kit.screen` |
+| compatibility | `kit` |
+
+## Configuring the components
+
+```js
+getBrowserSignature({
+  // ...
+  software: Array,
+  hardware: Array,
+  compatibility: Array
+})
+```
+
+In `software`, each keys are obtained from `kit.screen`.
+
+```js
+getBrowserSignature({
+  software: ["foo"]
+  // kit.screen.foo
+})
+```
+
+In `hardware`, each keys are obtained from `kit.navigator`.
+
+```js
+getBrowserSignature({
+  hardware: ["foo"]
+  // kit.navigator.foo
+})
+```
+
+In `compatibility`, each keys are obtained from `kit`.
+
+```js
+getBrowserSignature({
+  compatibility: ["foo"]
+  // "foo" in kit
+})
+```
+
+### Overriding
+
+By default, custom components are concatenated to the original one. To fully override the components, set `override` to true.
+
+```js
+getBrowserSignature({
+  // overrides all the components instead
+  override: true
+})
+```
+
+## Custom hash
+
+```js
+getBrowserSignature({
+  // ...
+  hash: Function
+})
+```
+
+> [!NOTE]
+> Overriding the default hash method can lead to similarity conflicts if both party uses different hash methods.
+
+To use the default one, use the function `getBrowserSignature.hash`.
+
+***
 
 [^1]: Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature. <p>If so, please report an issue regarding it. Thank you!</p> <p align="center"><a href="https://github.com/creuserr/browser-signature/issues/new?assignees=&labels=&projects=&template=report---signature-inaccuracy.md&title=Report+~+Signature+inaccuracy"><kbd>Submit a report :red_circle:</kbd></a></p>
