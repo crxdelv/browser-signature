@@ -3,7 +3,7 @@
 function getBrowserSignature(conf) {
   const config = conf || {}
   const kit = config.kit || globalThis.window
-  const hash = hash || getBrowserSignature.hash
+  const hash = config.hash || getBrowserSignature.hash
   if(kit == null) throw new Error("No provided kit")
   const n = kit.navigator
   const s = kit.screen
