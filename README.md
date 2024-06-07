@@ -8,7 +8,7 @@ Browser signatures are used to identify devices, even with different user-agents
 # Installation
 
 ## Client-side
-Download [https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js](`browser-signature.js`) and embed it locally:
+Download [`browsee-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and embed it locally:
 
 ```html
 <script src="browser-signature.js"></script>
@@ -19,6 +19,17 @@ Or use CDN instead:
 ```html
 <script src="https://cdn.jsdelivr.net/gh/creuserr/browser-signature/dist/browser-signature.js"></script>
 ```
+
+## Server-side
+Download [`browsee-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and import it.
+
+```js
+const getBrowserSignature = require("./browser-signature.js")
+console.log(getBrowserSignature.version)
+```
+
+> [!IMPORTANT]
+> Using this tool on server-side requires additional steps. See [#creating-a-kit](https://github.com/creuserr/browser-signature?tab=readme-ov-file#creating-a-kit) for more informations.
 
 # Usage
 ```js
@@ -118,7 +129,7 @@ getBrowserSignature({
 
 ## Creating a kit
 
-If you're using this library on a client-side application, you don't necessarily need to use kit.
+If you're using this tool on a client-side application, you don't necessarily need to use kit.
 
 Kit is basically the global instance. Think of kit as the `window` instance. Since NodeJS is server-side, `window` is inaccessible.
 
