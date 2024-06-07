@@ -3,7 +3,8 @@
 function getBrowserSignature(conf) {
   const config = conf || {}
   const kit = config.kit || globalThis.window
-  if(typeof kit != "object" || typeof config.hash != "function") throw new Error("Invalid or no provided kit")
+  const hash = hash || getBrowserSignature.hash
+  if(kit == null) throw new Error("No provided kit")
   const n = kit.navigator
   const s = kit.screen
   let sw = [n.appName, n.appCodeName, n.product, n.productSub, n.vendor]
@@ -31,15 +32,15 @@ function getBrowserSignature(conf) {
     }
   }
   const sign = {
-    software: config.hash(sw.join("")),
-    hardware: config.hash(hw.join("")),
-    compatibility: config.hash(comp.map(i => i in kit.global ? 1 : 0).join(""))
+    software: hash(sw.join("")),
+    hardware: hash(hw.join("")),
+    compatibility: hash(comp.map(i => i in kit.global ? 1 : 0).join(""))
   }
   sign.signature = {
-    all: config.hash(sign.software + sign.hardware + sign.compatibility),
-    softhard: config.hash(sign.software + sign.hardware),
-    hardcomp: config.hash(sign.hardware + sign.compatibility),
-    softcomp: config.hash(sign.software + sign.compatibility)
+    all: hash(sign.software + sign.hardware + sign.compatibility),
+    softhard: hash(sign.software + sign.hardware),
+    hardcomp: hash(sign.hardware + sign.compatibility),
+    softcomp: hash(sign.software + sign.compatibility)
   }
   return sign
 }
