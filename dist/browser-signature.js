@@ -7,12 +7,19 @@ function getBrowserSignature(conf) {
   if(kit == null) throw new Error("No provided kit")
   const n = kit.navigator
   const s = kit.screen
+  function getKey(i) {
+    let pointer = kit
+    i.split(".").forEach(k => {
+      pointer = pointer[k]
+    })
+    return pointer
+  }
   let sw = [n.appName, n.appCodeName, n.product, n.productSub, n.vendor]
   if(Array.isArray(config.software)) {
     if(config.override == true) {
       sw = config.software
     } else {
-      sw = sw.concat(config.software.map(i => n[i]))
+      sw = sw.concat(config.software.map(i => getKey(i)))
     }
   }
   let hw = [s.availHeight, s.availWidth, s.pixelDepth, s.colorDepth, n.hardwareConcurrency, n.maxTouchPoints, kit.devicePixelRatio]
@@ -20,7 +27,7 @@ function getBrowserSignature(conf) {
     if(config.override == true) {
       hw = config.hardware
     } else {
-      hw = hw.concat(config.hardware.map(i => s[i]))
+      hw = hw.concat(config.hardware.map(i => getKey(i)))
     }
   }
   let comp = ["WebGL2RenderingContext", "Worker", "WebSocket", "WebAssembly", "RTCCertificate", "IDBDatabase"]
@@ -28,7 +35,7 @@ function getBrowserSignature(conf) {
     if(config.override == true) {
       comp = config.compatibility
     } else {
-      comp = comp.concat(config.compatibility)
+      comp = comp.concat(config.compatibility.map(i => getKey(i)))
     }
   }
   const sign = {
