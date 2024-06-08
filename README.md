@@ -1,4 +1,4 @@
-# browser-signature <kbd>v3</kbd>
+# browser-signature <kbd>v3.1</kbd>
 `browser-signature` is a client-side tool that generates custom browser signature, relying on the browser's navigator, window, and screen.
 
 Browser signatures are used to identify devices, even with different user-agents or IP origins. [^1]
@@ -213,37 +213,18 @@ getBrowserSignature({
 
 ## Configuring the components
 
-```js
-getBrowserSignature({
-  // ...
-  software: Array,
-  hardware: Array,
-  compatibility: Array
-})
-```
+Every components must be an array of string that points to a property of the kit. Every keys are obtained from `kit`.
 
-In `software`, each keys are obtained from `kit.screen`.
+Therefore, obtaining software properties must starts with `navigator` first. And obtaining hardware properties must starts with `screen`.
+
+However, you can still access other properties nevertheless.
 
 ```js
 getBrowserSignature({
-  software: ["foo"]
+  software: ["screen.foo"],
   // kit.screen.foo
-})
-```
-
-In `hardware`, each keys are obtained from `kit.navigator`.
-
-```js
-getBrowserSignature({
-  hardware: ["foo"]
+  hardware: ["navigator.foo"],
   // kit.navigator.foo
-})
-```
-
-In `compatibility`, each keys are obtained from `kit`.
-
-```js
-getBrowserSignature({
   compatibility: ["foo"]
   // "foo" in kit
 })
