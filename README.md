@@ -170,18 +170,37 @@ getBrowserSignature({
     // both navigator and screen
     // must be objects
     navigator: {
-      // ...
+      // these are keys needed
+      // for the default software
+      appName: "...",
+      appCodeName: "...",
+      product: "...",
+      productSub: "...",
+      vendor: "...",
+      // used in hardware
+      hardwareConcurrency: 5,
+      maxTouchPoints: 5
     },
     screen: {
-      // ...
+      // these are keys needed
+      // for the default hardware
+      availHeight: 800,
+      availWidth: 360,
+      pixelDepth: 1,
+      colorDepth: 1
     },
+    // these are keys needed
+    // for the default compatibility.
     // any value is accepted
     // as long as it's defined
     WebGL2RenderingContext: 1,
     Worker: 1,
     WebSocket: 1,
     WebAssembly: 1
-    // ...
+    RTCCertificate: 1,
+    IDBDatabase: 1,
+    // used in hardware
+    devicePixelRatio: 5
   }
 })
 ```
