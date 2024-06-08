@@ -164,7 +164,7 @@ If you're using this tool on a client-side application, you don't necessarily ne
 
 Kit is basically the global instance. Think of kit as the `window` instance. Since NodeJS is server-side, `window` is inaccessible.
 
-**Kit template**
+**Kit Template**
 
 ```js
 getBrowserSignature({
