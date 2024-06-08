@@ -5,7 +5,7 @@ Browser signatures are used to identify devices, even with different user-agents
 
 <p align="center"><a href="https://crebin.vercel.app/demo/signature.html"><kbd>Try it online :green_circle:</kbd></a></p>
 
-# Installation
+# :package: Installation
 
 ## Client-side
 Download [`browser-signature.js`](https://github.com/creuserr/browser-signature/blob/main/dist/browser-signature.js) and embed it locally:
@@ -31,7 +31,7 @@ console.log(getBrowserSignature.version)
 > [!IMPORTANT]
 > Using this tool on server-side requires additional steps. See [#creating-a-kit](https://github.com/creuserr/browser-signature?tab=readme-ov-file#creating-a-kit) for more informations.
 
-# Usage
+# :books: Usage
 ```js
 getBrowserSignature(Object: config)
 // Returns an object
@@ -143,7 +143,7 @@ getBrowserSignature.hash = (raw) => {
 
 It merges two characters by using cantor-pairing method before hashing it.
 
-# Configuration
+# :wrench: Configuration
 
 ```js
 // getBrowserSignature(configuration)
