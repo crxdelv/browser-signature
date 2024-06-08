@@ -164,6 +164,8 @@ If you're using this tool on a client-side application, you don't necessarily ne
 
 Kit is basically the global instance. Think of kit as the `window` instance. Since NodeJS is server-side, `window` is inaccessible.
 
+**Kit template**
+
 ```js
 getBrowserSignature({
   kit: {
@@ -205,19 +207,9 @@ getBrowserSignature({
 })
 ```
 
-| Component | Uses |
-|:---------:|:----:|
-| software | `kit.screen` |
-| hardware | `kit.navigator` and `kit.screen` |
-| compatibility | `kit` |
-
 ## Configuring the components
 
 Every components must be an array of string that points to a property of the kit. Every keys are obtained from `kit`.
-
-Therefore, obtaining software properties must starts with `navigator` first. And obtaining hardware properties must starts with `screen`.
-
-However, you can still access other properties nevertheless.
 
 ```js
 getBrowserSignature({
@@ -254,7 +246,5 @@ getBrowserSignature({
 > Overriding the default hash method can lead to similarity conflicts if both party uses different hash methods.
 
 To use the default one, use the function `getBrowserSignature.hash`.
-
-***
 
 [^1]: Since this browser signature library uses software-based information, I'm still unsure if it can affect the signature. <p>If so, please report an issue regarding it. Thank you!</p> <p align="center"><a href="https://github.com/creuserr/browser-signature/issues/new?assignees=&labels=&projects=&template=report---signature-inaccuracy.md&title=Report+~+Signature+inaccuracy"><kbd>Submit a report :red_circle:</kbd></a></p>
