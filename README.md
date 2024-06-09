@@ -198,7 +198,7 @@ getBrowserSignature({
     WebGL2RenderingContext: 1,
     Worker: 1,
     WebSocket: 1,
-    WebAssembly: 1
+    WebAssembly: 1,
     RTCCertificate: 1,
     IDBDatabase: 1,
     // used in hardware
