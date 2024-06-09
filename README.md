@@ -1,5 +1,5 @@
 # browser-signature <kbd>v3.1</kbd>
-`browser-signature` is a client-side tool that generates custom browser signature, relying on the browser's navigator, window, and screen.
+`browser-signature` is a client-side (and partially server-side) tool that generates custom browser signature, relying on the browser's navigator, window, and screen.
 
 Browser signatures are used to identify devices, even with different user-agents or IP origins. [^1]
 
